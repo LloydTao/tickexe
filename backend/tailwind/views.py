@@ -4,4 +4,4 @@ from django.views.generic.base import TemplateView
 
 class TailwindView(TemplateView):
 
-    template_name = "tailwind/example.html"
+    template_name = "tailwind/wireframe.html"

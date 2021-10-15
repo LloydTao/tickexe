@@ -1,9 +1,24 @@
+{% extends 'tailwind/base.html' %}
 
-<div class="w-full bg-green-800 inline-flex text-white font-sans space-x-1">
-    <img src="/static/logo.png">
-    <div class="py-1 flex-1 bg-red-700 text-center"></div>
-	<div class="py-1 hover:bg-green-900 flex-1 text-center">Buy</div>
-	<div class="py-1 hover:bg-green-900 flex-1 text-center">Sell</div>
-	<div class="py-1 hover:bg-green-900 flex-1 text-center">Settings</div>
+{% load static %}
+
+{% block head %}
+<title>TickExe</title>
+{{ block.super }}
+{% endblock head %}
+
+{% block body %}
+<div class="text-2xl w-full p-2 bg-green-800 inline-flex text-white font-sans space-x-1">
+    <div class="inline-flex w-1/6"><img src="{% static 'tailwind/logo.png' %}"></div>
+	<div class="py-1 hover:bg-green-900 flex-1 text-center mx-auto my-auto">Buy</div>
+	<div class="py-1 hover:bg-green-900 flex-1 text-center mx-auto my-auto">Sell</div>
+	<div class="py-1 hover:bg-green-900 flex-1 text-center mx-auto my-auto">Settings</div>
 </div>
+{% endblock body %}
+
+
+
+
+
+
 
