@@ -1,0 +1,32 @@
+{% extends 'tailwind/base.html' %}
+
+{% load static %}
+
+{% block head %}
+<title>Tickexe - Tickets to Exeter's Nightlife</title>
+{{ block.super }}
+{% endblock head %}
+
+{% block body %}
+<div class="flex flex-col min-h-screen bg-gray-100 py-5 px-3">
+    <div class="overflow-hidden">
+        <form class="mx-auto" method="post">
+            {% csrf_token %}
+            <div>
+                Are you sure that you wish to delete {{ listing.id }}?
+            </div>
+            <ul>
+                <li>{{ listing.venue }}</li>
+                <li>{{ listing.price }}</li>
+                <li>{{ listing.description }}</li>
+            </ul>
+            <button
+                class="text-sm text-white font-semibold tracking-wide bg-red-400 hover:bg-red-500 rounded py-2 px-3 my-1"
+                type="submit">
+                Delete
+            </button>
+    </div>
+    </form>
+</div>
+</div>
+{% endblock body %}

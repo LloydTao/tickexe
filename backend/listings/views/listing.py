@@ -48,3 +48,14 @@ class ListingUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def get_success_url(self):
         return reverse("listing-detail", args=(self.object.id,))
 
+
+class ListingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Listing
+    template_name = "listings/listing_delete.html"
+
+    def test_func(self):
+        listing = self.get_object()
+        return self.request.user == listing.user
+
+    def get_success_url(self):
+        return reverse("listing-list")
