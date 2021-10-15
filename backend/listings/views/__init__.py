@@ -3,4 +3,5 @@ from .listing import (
     ListingDetailView,
     ListingCreateView,
     ListingUpdateView,
+    ListingDeleteView,
 )
