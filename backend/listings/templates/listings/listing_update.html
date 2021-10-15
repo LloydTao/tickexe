@@ -1,0 +1,25 @@
+{% extends 'tailwind/base.html' %}
+
+{% load static %}
+
+{% block head %}
+<title>Tickexe - Tickets to Exeter's Nightlife</title>
+{{ block.super }}
+{% endblock head %}
+
+{% block body %}
+<div class="flex flex-col min-h-screen bg-gray-100 py-5 px-3">
+    <div class="overflow-hidden">
+        <form class="mx-auto" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button
+                class="text-sm text-white font-semibold tracking-wide bg-yellow-400 hover:bg-yellow-500 rounded py-2 px-3 my-1"
+                type="submit">
+                Update
+            </button>
+    </div>
+    </form>
+</div>
+</div>
+{% endblock body %}
