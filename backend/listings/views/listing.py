@@ -17,3 +17,8 @@ class ListingListView(ListView):
     context_object_name = "listings"
     template_name = "listings/listing_list.html"
 
+
+class ListingDetailView(DetailView):
+    model = Listing
+    template_name = "listings/listing_detail.html"
+
