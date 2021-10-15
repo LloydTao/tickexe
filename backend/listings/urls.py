@@ -4,6 +4,7 @@ from listings.views import (
     ListingListView,
     ListingDetailView,
     ListingCreateView,
+    ListingUpdateView,
 )
 
 
@@ -12,6 +13,11 @@ urlpatterns = [
         "listings/create/",
         ListingCreateView.as_view(),
         name="listing-create",
+    ),
+    path(
+        "listings/<int:pk>/update/",
+        ListingUpdateView.as_view(),
+        name="listing-update",
     ),
     path(
         "listings/<int:pk>",

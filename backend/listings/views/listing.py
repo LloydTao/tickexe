@@ -35,3 +35,16 @@ class ListingCreateView(LoginRequiredMixin, CreateView):
     def get_success_url(self):
         return reverse("listing-detail", args=(self.object.id,))
 
+
+class ListingUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Listing
+    fields = ["price", "venue", "description"]
+    template_name = "listings/listing_update.html"
+
+    def test_func(self):
+        listing = self.get_object()
+        return self.request.user == listing.user
+
+    def get_success_url(self):
+        return reverse("listing-detail", args=(self.object.id,))
+
