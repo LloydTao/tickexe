@@ -1,0 +1,26 @@
+{% extends 'tailwind/base.html' %}
+
+{% load static %}
+
+{% block head %}
+<title>Tickexe</title>
+{{ block.super }}
+{% endblock head %}
+
+{% block body %}
+<div class="w-screen h-screen">
+  <div class="w-3/4 h-3/4 block shadow-lg mx-auto my-auto rounded-3xl pt-4 mt-16">
+
+  {% if request.user %}
+    <div class="text-3xl mx-8 mt-6 mb-2">Hey {{ request.user.username }}!</div>
+    {% else %}
+        <input type="submit" class="shadow-lg hover:bg-blue-400 p-2 px-4 rounded-lg my-4 bg-blue-500 text-white ml-8" value="Login"></input>
+  {% endif %}
+    </div>
+
+    <div class="mx-8 my-4">
+      Hello!
+
+  </div>
+</div>
+{% endblock body %}
