@@ -113,3 +113,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = "/static/"
+
+
+# Django user authentication settings
+# https://docs.djangoproject.com/en/3.2/ref/settings/#logout-redirect-url
+
+AUTH_USER_MODEL = "accounts.User"
