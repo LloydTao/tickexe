@@ -1,0 +1,19 @@
+{% extends 'tailwind/base.html' %}
+
+{% load static %}
+
+{% block head %}
+<title>Tickexe - Tickets to Exeter's Nightlife</title>
+{{ block.super }}
+{% endblock head %}
+
+{% block body %}
+<div class="flex flex-col min-h-screen bg-gray-100 py-5 px-3">
+    <ul class="flex space-x-3">
+        <li>{{ listing.user }}</li>
+        <li>{{ listing.venue }}</li>
+        <li>{{ listing.price }}</li>
+        <li>{{ listing.description }}</li>
+    </ul>
+</div>
+{% endblock body %}
