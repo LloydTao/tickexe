@@ -3,3 +3,4 @@ Django==3.2.8
 
 # Code quality
 black==21.9b0
+coverage==6.0.2
