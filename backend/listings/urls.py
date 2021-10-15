@@ -5,6 +5,7 @@ from listings.views import (
     ListingDetailView,
     ListingCreateView,
     ListingUpdateView,
+    ListingDeleteView,
 )
 
 
@@ -13,6 +14,11 @@ urlpatterns = [
         "listings/create/",
         ListingCreateView.as_view(),
         name="listing-create",
+    ),
+    path(
+        "listings/<int:pk>/delete/",
+        ListingDeleteView.as_view(),
+        name="listing-delete",
     ),
     path(
         "listings/<int:pk>/update/",
