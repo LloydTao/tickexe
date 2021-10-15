@@ -1,0 +1,28 @@
+{% extends 'tailwind/base.html' %}
+
+{% load static %}
+
+{% block head %}
+<title>Tickexe - Tickets to Exeter's Nightlife</title>
+{{ block.super }}
+{% endblock head %}
+
+{% block body %}
+<div class="flex flex-col min-h-screen bg-gray-100 py-5 px-3">
+    <ul class="flex space-x-3">
+        <li>{{ listing.user }}</li>
+        <li>{{ listing.venue }}</li>
+        <li>{{ listing.price }}</li>
+        <li>{{ listing.description }}</li>
+    </ul>
+    <ul>
+        {% if listing.user == request.user %}
+        <li><a href="{% url 'listing-update' listing.id %}" class="underline">Edit</a></li>
+        <li><a href="{% url 'listing-delete' listing.id %}" class="underline">Delete</a></li>
+        {% endif %}
+    </ul>
+    <ul>
+        <li><a href="/" class="underline">Return to listings</a></li>
+    </ul>
+</div>
+{% endblock body %}
