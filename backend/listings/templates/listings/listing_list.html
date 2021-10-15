@@ -15,7 +15,15 @@
         <li>{{ listing.venue }}</li>
         <li>{{ listing.price }}</li>
         <li>{{ listing.description }}</li>
+        <li><a href="{% url 'listing-detail' listing.id %}" class="underline">View</a></li>
+        {% if listing.user == request.user %}
+        <li><a href="{% url 'listing-update' listing.id %}" class="underline">Edit</a></li>
+        <li><a href="{% url 'listing-delete' listing.id %}" class="underline">Delete</a></li>
+        {% endif %}
     </ul>
     {% endfor %}
+    <ul>
+        <li><a href="/listings/create/" class="underline">Create</a></li>
+    </ul>
 </div>
 {% endblock body %}
