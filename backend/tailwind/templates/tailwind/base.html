@@ -10,6 +10,13 @@
 </head>
 
 <body>
+<div class="text-2xl w-full p-2 bg-green-800 inline-flex text-white font-sans space-x-1">
+    <div class="inline-flex"><img class="h-24" src="{% static 'tailwind/logo.png' %}"></div>
+	<div class="py-1 hover:bg-green-900 flex-1 text-center mx-auto my-auto">Buy</div>
+	<div class="py-1 hover:bg-green-900 flex-1 text-center mx-auto my-auto">Sell</div>
+	<div class="py-1 hover:bg-green-900 flex-1 text-center mx-auto my-auto">Settings</div>
+</div>
+
   {% block body %}
   {% endblock body %}
 </body>
