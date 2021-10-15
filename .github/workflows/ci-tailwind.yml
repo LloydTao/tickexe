@@ -1,0 +1,43 @@
+name: Tailwind CI
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+defaults:
+  run:
+    shell: bash
+    working-directory: backend/tailwind/tailwindcss/
+
+jobs:
+  ci:
+    name: Build and test Tailwind project
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+        node-version:
+          - 12
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2.3.4
+    
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install npm dependencies
+        run: yarn install
+
+      - name: Lint Tailwind project
+        run: yarn lint
+
+      - name: Build Tailwind project
+        run: yarn build
